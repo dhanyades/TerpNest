@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View, Button, Alert, TextInput, Image } from "react-native";
 import { useState } from "react";
+import terpLogo from '@/assets/images/turtlenestlogo.png'
+import umdLogo from '@/assets/images/umd-bckgrnd.webp'
 
 const LoginScreen = ({navigation}) => {
     const [username, setUsername] = useState("");
@@ -19,6 +21,10 @@ const LoginScreen = ({navigation}) => {
     
     return (
         <View style={styles.main}>
+            <View style={styles.header}>
+                <Image style={styles.image} source={terpLogo} /> 
+                <Text style={styles.headerTitle}>TerpNest</Text>
+            </View>
             <Text style={styles.title}>Log In:</Text>
             <Text style={styles.subtitle}>Enter your username and password.</Text>
 
@@ -47,7 +53,6 @@ export default LoginScreen;
 const styles = StyleSheet.create({
     main: {
         flex: 1,
-        justifyContent: "center",
         maxWidth: 960,
         marginHorizontal: "auto",
         backgroundColor: '#b91d00'
@@ -68,5 +73,25 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         backgroundColor: "#fff",
+      },
+      headerTitle: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        fontFamily: 'Monaco',       
+        color: 'white',
+        opacity: 0.8,
+        alignSelf: 'center', 
+        marginLeft: '-5%',
+    },
+    image: {
+        maxHeight: '100%',
+        maxWidth: '24%',
+        resizeMode: 'contain'
+    },
+    header: {
+        backgroundColor: '#C41E3A',
+        maxHeight: '9%',
+        maxWidth: '100%',
+        flexDirection: 'row',
       },
     });
