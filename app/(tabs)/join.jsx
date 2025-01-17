@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import React from 'react';
 import terpLogo from '@/assets/images/turtlenestlogo.png'
 import umdLogo from '@/assets/images/umd-bckgrnd.webp'
-import { navigate } from 'expo-router/build/global-state/routing'
 
 const JoinScreen = ( {navigation} ) => {
     const handlePress = () => {
