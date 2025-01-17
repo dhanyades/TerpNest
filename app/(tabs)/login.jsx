@@ -3,7 +3,6 @@ import { useState } from "react";
 import terpLogo from '@/assets/images/turtlenestlogo.png'
 import umdLogo from '@/assets/images/umd-bckgrnd.webp'
 
-
 const LoginScreen = ({navigation}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -51,7 +50,6 @@ const LoginScreen = ({navigation}) => {
                 </TouchableOpacity>
 
             </View>
-            
       </View>
     );
 
@@ -61,7 +59,7 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
     main: {
-        flex: 1,
+      flex: 1,
       flexDirection: 'column',
       backgroundColor: '#800020',
       resizeMode: 'contain'
@@ -72,7 +70,24 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         flexDirection: 'row',
     },
-    title: {
+      title: {
+        fontSize: 64,
+        fontWeight: "bold",
+      },
+      subtitle: {
+        fontSize: 36,
+        color: "#fff",
+      },
+      input: {
+        width: "80%",
+        height: 40,
+        marginVertical: 10,
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: "#fff",
+      },
+      headerTitle: {
         fontSize: 25,
         fontWeight: 'bold',
         fontFamily: 'Monaco',       
@@ -134,5 +149,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         fontWeight: 'bold'
 
-    }
+    },
+    header: {
+        backgroundColor: '#C41E3A',
+        maxHeight: '9%',
+        maxWidth: '100%',
+        flexDirection: 'row',
+      },
     });
