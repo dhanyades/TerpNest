@@ -76,6 +76,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignSelf: 'center',
         marginTop: '10%',
-        borderRadius: 10,
+        borderRadius: 20,
     }
   })
