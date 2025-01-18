@@ -1,14 +1,14 @@
 class Profile {
     username: string;  
-    address: string;
-    price: string;
-    beds: string
+    fullName: string;
+    gender: string;
+    semester: string
 
-    constructor(username: string, address: string, price: string, beds: string) {
+    constructor(username: string, fullName: string, gender: string, semester: string) {
         this.username = username;
-        this.address = address;
-        this.price = price;
-        this.beds = beds;
+        this.fullName = fullName;
+        this.gender = gender;
+        this.semester = semester;
     }
 
 };
