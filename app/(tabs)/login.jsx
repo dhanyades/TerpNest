@@ -23,7 +23,7 @@ const LoginScreen = ({navigation}) => {
         <View style={styles.main}>
             <View style={styles.header}>
                 <Image style={styles.image} source={terpLogo} /> 
-                <Text style={styles.title}>TerpNest</Text>
+                <Text style={styles.headerTitle}>TerpNest</Text>
             </View>
             <View style={styles.background}>
                 <Image style={styles.imagebckgrnd} source={umdLogo} />
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         opacity: 0.5,
     },
-      
     label: {
         fontSize: 60,
         fontWeight: "bold",
