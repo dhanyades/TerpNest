@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from "reac
 import { useState } from "react";
 import terpLogo from '@/assets/images/turtlenestlogo.png'
 import umdLogo from '@/assets/images/umd-bckgrnd.webp'
+import userIcon from '@/assets/images/usericon.png'
 
 const LoginScreen = ({navigation}) => {
     const [username, setUsername] = useState("");
@@ -30,6 +31,9 @@ const LoginScreen = ({navigation}) => {
             </View>
             <Text style={styles.label}>Log In:</Text>
             <Text style={styles.subtitle}>Enter your username and password.</Text>
+            <View style={styles.profile}>
+              <Image style={{width:100, height:100}} source={userIcon} />
+            </View>
             <View style={styles.login}>
                 <TextInput
                     style={styles.input}
@@ -77,6 +81,11 @@ const styles = StyleSheet.create({
       subtitle: {
         fontSize: 36,
         color: "#fff",
+      },
+      profile:{
+        maxWidth: 100,
+        maxHeight: 100,
+        alignSelf: 'center'
       },
       input: {
         width: "80%",
