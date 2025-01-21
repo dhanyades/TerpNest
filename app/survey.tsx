@@ -1,9 +1,25 @@
 import React from "react";
 import {View, Text, TouchableOpacity, StyleSheet, Image} from "react-native";
-import terpLogo from '@/assets/images/turtlenestlogo.png'
+import terpLogo from '@/assets/images/turtlenestlogo.png';
+import { useNavigation } from '@react-navigation/native';
+import Profile from "../components/models/profile";
+import listing from "../listings.json";
+import Property from "../components/models/property";
 
-const SurveyScreen = ({navigation, username: string}) => {
- return(
+const SurveyScreen = () => {
+    const navigation = useNavigation<any>();
+
+    const handlePress = () => {
+        const jsonData: any[] = listing;
+
+        // Map over the fetched data to create a typed array of Property
+        const properties: Property[] = listing;
+        console.log(properties)
+        navigation.navigate('Listings', { properties });
+    }
+ 
+ 
+    return(
     <View>
         <View style={styles.header}>
                 <Image style={styles.image} source={terpLogo} /> 
@@ -11,9 +27,11 @@ const SurveyScreen = ({navigation, username: string}) => {
         </View>
         <Text>Survey</Text>
         <Text>Please fill in your preferences below:</Text>
-        <TouchableOpacity>
+        
+        <TouchableOpacity onPress={handlePress}>
             <Text>Submit Changes</Text>
         </TouchableOpacity>
+
     </View>
  )   
 }
