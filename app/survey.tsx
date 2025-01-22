@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 10,
-        backgroundColor: 'gray',
+        backgroundColor: '#dd3c57',
         marginTop: '10%',
         marginBottom: '10%',
         borderRadius: 20,

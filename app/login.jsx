@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     main: {
       flex: 1,
       flexDirection: 'column',
-      backgroundColor: '#800020',
+      backgroundColor: '#ebebeb',
       resizeMode: 'contain'
     },
     header: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
       },
       subtitle: {
         fontSize: 36,
-        color: "#fff",
+        color: "#949697",
       },
       profile:{
         maxWidth: 100,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontSize: 18,
-        color: "#fff",
+        color: "black",
         opacity: 0.7,
         marginLeft: 23,
         marginBottom: 20
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 10,
-        backgroundColor: 'white',
+        backgroundColor: '#dd3c57',
         marginTop: '10%',
         borderRadius: 20,
         height: 40,

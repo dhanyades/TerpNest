@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'column',
-      backgroundColor: '#800020',
+      backgroundColor: '#ebebeb',
       resizeMode: 'contain'
     },
     title: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     text: {
-      color: 'white',
+      color: 'black',
       fontSize: 20,
       fontWeight: 'bold',
       marginTop: '5%',
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 10,
-        backgroundColor: 'white',
+        backgroundColor: '#dd3c57',
         alignSelf: 'center',
         marginTop: '10%',
         borderRadius: 20,
