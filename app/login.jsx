@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     main: {
       flex: 1,
       flexDirection: 'column',
-      backgroundColor: '#800020',
+      backgroundColor: '#d3d3d3',
       resizeMode: 'contain'
     },
     header: {
