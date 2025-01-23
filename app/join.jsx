@@ -18,7 +18,7 @@ const JoinScreen = ( {navigation} ) => {
             </View>
             <Text style={styles.text}>Join the Turtle Nest!</Text>
             <TouchableOpacity style={styles.button} onPress={handlePress}>
-                <Text>Join Now!</Text>
+                <Text style={styles.buttonText}>Join Now!</Text>
             </TouchableOpacity>
         </View>
     );
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'column',
-      backgroundColor: '#800020',
-      resizeMode: 'contain'
+      backgroundColor: '#f5eeda',
+      resizeMode: 'contain',
     },
     title: {
         fontSize: 25,
@@ -47,18 +47,23 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     text: {
-      color: 'white',
-      fontSize: 20,
+      color: 'black',
+      fontSize: 30,
       fontWeight: 'bold',
       marginTop: '5%',
       alignSelf: 'center',
-      fontFamily: 'Monaco'
+      fontFamily: 'Monaco',
     },
     header: {
       backgroundColor: '#C41E3A',
       maxHeight: '9%',
       maxWidth: '100%',
       flexDirection: 'row',
+      shadowColor: '#000', // Shadow color
+      shadowOffset: { width: 0, height: 2 }, // Shadow direction and distance
+      shadowOpacity: 0.25, // Shadow opacity
+      shadowRadius: 3.84, // Shadow blur radius
+      elevation: 5, // Android elevation
     },
     background: {
       maxHeight: '30%',
@@ -68,13 +73,20 @@ const styles = StyleSheet.create({
     imagebckgrnd: {
       maxHeight: '100%',
       maxWidth: '100%',
-      opacity: 0.5,
+      opacity: 0.4,
+      
     },
     button: {
         padding: 10,
-        backgroundColor: 'white',
+        backgroundColor: '#C41E3A',
         alignSelf: 'center',
         marginTop: '10%',
         borderRadius: 20,
+    },
+    buttonText:{
+      color: "white",
+      fontFamily: 'Lucida Console',
+      fontWeight: 'bold',
     }
+
   })

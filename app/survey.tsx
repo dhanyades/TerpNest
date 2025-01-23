@@ -3,19 +3,14 @@ import {View, Text, TouchableOpacity, StyleSheet, Image} from "react-native";
 import terpLogo from '@/assets/images/turtlenestlogo.png';
 import { useNavigation } from '@react-navigation/native';
 import Profile from "../components/models/profile";
-import listing from "../listings.json";
 import Property from "../components/models/property";
 
 const SurveyScreen = () => {
     const navigation = useNavigation<any>();
 
     const handlePress = () => {
-        const jsonData: any[] = listing;
-
-        // Map over the fetched data to create a typed array of Property
-        const properties: Property[] = listing;
-        console.log(properties)
-        navigation.navigate('Listings', { properties });
+        
+        navigation.navigate('Listings');
     }
  
  
