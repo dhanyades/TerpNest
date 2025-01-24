@@ -2,9 +2,11 @@ import React, {useState, useEffect} from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Image} from "react-native";
 import ListingCard from "@/components/ListingCard";
 import Property from "@/components/models/property";
-import terpLogo from '@/assets/images/turtlenestlogo.png'
+import terpLogo from '@/assets/images/turtlenestlogo.png';
+import { useNavigation } from '@react-navigation/native';
 
 const ListingScreen = () => {
+    const navigation = useNavigation<any>();
     const [index, setIndex] = useState(0);
     const [properties, setProperties] = useState<Property[]>([]);
 
@@ -41,6 +43,10 @@ const ListingScreen = () => {
         }
     }
 
+    const handleMenu = () => {
+        navigation.navigate('Menu');
+    }
+
     const isFirst = index === 0;
     const isLast = index === properties.length - 1;
 
@@ -49,6 +55,11 @@ const ListingScreen = () => {
             <View style={styles.header}>
                 <Image style={styles.image} source={terpLogo} /> 
                 <Text style={styles.headerTitle}>TerpNest</Text>
+                <TouchableOpacity onPress={handleMenu} style={styles.button}>
+                    <View style={styles.line} />
+                    <View style={styles.line} />
+                    <View style={styles.line} />
+                </TouchableOpacity>
             </View>
             <Text style={styles.topText}>Available Listings:</Text>
             <View style={styles.card}>
@@ -98,6 +109,21 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         flexDirection: 'row',
     },
+    button: {
+        width: 30,
+        height: 30,
+        justifyContent: 'space-between',
+        marginTop: 20,
+        marginLeft: 145,
+      },
+      line: {
+        width: 25,
+        height: 2,
+        backgroundColor: 'white',
+        opacity: 0.8,
+        borderRadius: 2,
+        margin: 5,
+      },
       title: {
         fontSize: 64,
         fontWeight: "bold",
