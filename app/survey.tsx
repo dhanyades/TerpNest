@@ -1,12 +1,34 @@
-import React from "react";
-import {View, Text, TouchableOpacity, StyleSheet, Image} from "react-native";
+import React, {useState} from "react";
+import {View, Text, TouchableOpacity, StyleSheet, Image, TextInput} from "react-native";
 import terpLogo from '@/assets/images/turtlenestlogo.png';
 import { useNavigation } from '@react-navigation/native';
-import Profile from "../components/models/profile";
-import Property from "../components/models/property";
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const SurveyScreen = () => {
     const navigation = useNavigation<any>();
+
+    const [diet, setDiet] = useState("");
+
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
+    const [items, setItems] = useState([
+    { label: 'Messy', value: 'option1' },
+    { label: 'Neat', value: 'option2' },
+    { label: 'OCD', value: 'option3' },
+    { label: 'Average', value: 'option4' },
+  ]);
+    const [open1, setOpen1] = useState(false);
+    const [value1, setValue1] = useState(null);
+    const [items1, setItems1] = useState([
+    { label: 'Yes', value: 'option1' },
+    { label: 'No', value: 'option2' },
+  ]);
+    const [open2, setOpen2] = useState(false);
+    const [value2, setValue2] = useState(null);
+    const [items2, setItems2] = useState([
+    { label: 'Extroverted', value: 'option1' },
+    { label: 'Introverted', value: 'option2' },
+  ]);
 
     const handlePress = () => {
         
@@ -15,24 +37,57 @@ const SurveyScreen = () => {
  
  
     return(
-        <View>
+        <View style={styles.main}>
             <View style={styles.header}>
                     <Image style={styles.image} source={terpLogo} /> 
                     <Text style={styles.title}>TerpNest</Text>
             </View>
-            <View>
-                <Text style={styles.label}>Survey</Text>
-                <Text style={styles.sublabel}>Please fill in your preferences below:</Text>
+            <View >
+                <Text style={styles.label}>Please fill in your preferences below:</Text>
                 <View style={styles.line}></View>
-                <Text style={styles.subtitle}>In terms of cleanliness, people consider me to be:</Text>
                 <Text style={styles.subtitle}>I am a morning person.</Text>
-                <Text style={styles.subtitle}>It would bother me to live with someone who smokes/vapes.</Text>
+                <DropDownPicker
+                    open={open1}
+                    value={value1}
+                    items={items1}
+                    setOpen={setOpen1}
+                    setValue={setValue1}
+                    setItems={setItems1}
+                    placeholder="Select an option"
+                />
+                
                 <Text style={styles.subtitle}>Socially, I am best described as:</Text>
+                <DropDownPicker
+                    open={open2}
+                    value={value2}
+                    items={items2}
+                    setOpen={setOpen2}
+                    setValue={setValue2}
+                    setItems={setItems2}
+                    placeholder="Select an option"
+                />
+                <Text style={styles.subtitle}>In terms of cleanliness, people consider me to be:</Text>
+                <DropDownPicker
+                    open={open}
+                    value={value}
+                    items={items}
+                    setOpen={setOpen}
+                    setValue={setValue}
+                    setItems={setItems}
+                    placeholder="Select an option"
+                />
                 <Text style={styles.subtitle}>Any dietary restrictions or allergies you wish to disclose:</Text>
+                <TextInput
+                style={styles.input}
+                placeholder="Enter your dietary preferences"
+                value={diet}
+                onChangeText={setDiet}
+                />
+                <TouchableOpacity style={styles.button} onPress={handlePress}>
+                    <Text style={styles.buttonText}>Submit Changes</Text>
+                </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.button} onPress={handlePress}>
-                <Text style={styles.buttonText}>Submit Changes</Text>
-            </TouchableOpacity>
+           
         </View>
      )      
 }
@@ -59,16 +114,22 @@ const styles = StyleSheet.create({
         alignSelf: 'center', 
         marginLeft: '-5%',
     },
+    main: {
+        backgroundColor: '#f3e7e7',
+    },
     line: {
         height: 1,
         backgroundColor: 'black',
         marginBottom: 20,
+        marginTop: 5
+
     },
     label: {
-        fontSize: 45,
+        fontSize: 20,
         fontWeight: 'bold',
         fontFamily: 'Lucida Console',
         marginLeft: 20, 
+        marginTop: 10
     },
     sublabel: {
         fontSize: 22,
@@ -97,5 +158,13 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 15,
         alignSelf: 'center',
+    },
+    input: {
+        width: "70%",
+        height: 40,
+        borderWidth: 4,
+        padding: 15,
+        borderRadius: 10,
+        backgroundColor: "#fff",
     },
 });

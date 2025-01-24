@@ -5,6 +5,7 @@ import LoginScreen from './login';
 import SurveyScreen from './survey';
 import ListingScreen from './listings'
 import Property from '../components/models/property';
+import SignUpScreen from './signUp';
 
 
 type RootStackParamList = {
@@ -20,6 +21,7 @@ const index = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Join" component={JoinScreen} />
+      <Stack.Screen name="Sign-Up" component={SignUpScreen}/>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Survey" component={SurveyScreen}/>
       <Stack.Screen name="Listings" component={ListingScreen} options={{ title: 'Listing Screen' }}/>
