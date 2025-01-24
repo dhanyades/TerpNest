@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import Property from "./models/property";
-import {View, Text, Button, Image, StyleSheet} from "react-native"
-import { ScreenContentWrapper } from "react-native-screens";
+import {View, Text, Image, StyleSheet, Pressable} from "react-native"
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 const ListingCard: React.FC<Property> = (listing: Property) => {
     const secureImageURL = listing.image.startsWith('//') ? `https:${listing.image}` : listing.image;
+    const [liked, setLiked] = useState(false);
 
     return(
         <View style={styles.card}>
@@ -13,6 +15,17 @@ const ListingCard: React.FC<Property> = (listing: Property) => {
             <Text style={styles.info}>{listing.address}</Text>
             <Text style={styles.rent}>Rent: {listing.price}</Text>
             <Text style={styles.info}>Rooms: {listing.beds}</Text>
+            <View style={styles.like}>
+                
+                <Pressable onPress={() => setLiked(!liked)}>
+                <MaterialCommunityIcons 
+                    name={liked ? 'heart' : 'heart-outline'} 
+                    size={32} 
+                    color={liked ? 'red' : ''} 
+                />
+                </Pressable>
+            </View>
+            
         </View>
     );
 };
@@ -24,7 +37,7 @@ const styles = StyleSheet.create ({
     shadowOffset: {width: 1, height: 1},
     shadowOpacity: 0.3,
     width: 375,
-    maxHeight: 530,
+    maxHeight: 560,
     backgroundColor: "white",
     padding: 15,
     borderRadius: 20,
@@ -38,7 +51,6 @@ const styles = StyleSheet.create ({
     fontFamily: "Monaco",
     alignSelf: "center",
     fontSize: 18
-
    },
    image: {
     width: 300, 
@@ -57,5 +69,10 @@ info: {
 rent: {
     fontFamily: "Monaco",
     color: "grey",
+},
+like: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    marginLeft: 300
 }
 })

@@ -1,15 +1,33 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Image} from "react-native";
-import Property from "../components/models/property";
 import ListingCard from "@/components/ListingCard";
-import listing from "../listings.json";
+import Property from "@/components/models/property";
 import terpLogo from '@/assets/images/turtlenestlogo.png'
 
 const ListingScreen = () => {
     const [index, setIndex] = useState(0);
-    const jsonData: any[] = listing;
+    const [properties, setProperties] = useState<Property[]>([]);
 
-    const properties: Property[] = listing;
+    useEffect(() => {
+        fetch('http://localhost:3000/properties')
+            .then(response => response.json())
+            .then(data => {
+                console.log("in fetch", {data});
+
+                // Ensure data is in the expected format and map it
+                const formattedProperties = data.data.map((item: any): Property => ({
+                    id: item.id,
+                    title: item.title,
+                    image: item.image,
+                    address: item.address,
+                    price: item.price,
+                    beds: item.beds
+                }));
+                setProperties(formattedProperties);
+                console.log({formattedProperties});
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }, []);
 
     const handlePrev = () => {
         if (index > 0) {  // Ensure index does not go below 0
@@ -32,15 +50,18 @@ const ListingScreen = () => {
                 <Image style={styles.image} source={terpLogo} /> 
                 <Text style={styles.headerTitle}>TerpNest</Text>
             </View>
-            <Text style={styles.topText}>Listings Below:</Text>
+            <Text style={styles.topText}>Available Listings:</Text>
             <View style={styles.card}>
-                <ListingCard 
-                    title={properties[index].title}
-                    address={properties[index].address}
-                    price={properties[index].price}
-                    beds={properties[index].beds}
-                    image={properties[index].image}
-                />
+            {properties.length > 0 && (
+                    <ListingCard 
+                        id={properties[index].id}
+                        title={properties[index].title}
+                        address={properties[index].address}
+                        price={properties[index].price}
+                        beds={properties[index].beds}
+                        image={properties[index].image}
+                    />
+                )}
             </View>
             
             <View style={styles.buttons}>
@@ -61,12 +82,13 @@ const styles = StyleSheet.create({
     main: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#d3d3d3',
+        backgroundColor: '#f3e7e7',
     },
     topText: {
-        fontSize: 30,
+        fontSize: 20,
         fontFamily: "Monaco",
-        marginTop: 15,
+        fontWeight: "bold",
+        marginTop: 35,
         alignSelf: "flex-start",
         marginLeft: 25
     },
@@ -83,7 +105,7 @@ const styles = StyleSheet.create({
       card: {
         alignSelf: "center",
         justifyContent: "center",
-        marginTop: 50,
+        marginTop: 10,
 
       },
       headerTitle: {
@@ -102,6 +124,9 @@ const styles = StyleSheet.create({
     },
     buttons: {
         flexDirection: "row",
+        position: "absolute",
+        marginTop: 700
+
     },
     prev: {
         margin: 10,

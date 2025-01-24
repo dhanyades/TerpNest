@@ -2,23 +2,21 @@ import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity } from "reac
 import { useState } from "react";
 import terpLogo from '@/assets/images/turtlenestlogo.png'
 import umdLogo from '@/assets/images/umd-bckgrnd.webp'
-import userIcon from '@/assets/images/usericon.png'
+import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = ({navigation}) => {
+
+const SignUpScreen = ({}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-  const correctUsername = "admin";
-  const correctPassword = "terps";
+    const [fullName, setName] = useState("");
+    const [gender, setGender] = useState("");
+    const [semester, setSemester] = useState("");
+    const navigation = useNavigation<any>();
 
-  const handlePress = () => {
-    if (username === correctUsername && password === correctPassword){
-      navigation.navigate('Survey')
-
+    const handlePress = () => {
+        navigation.navigate('Survey');
     }
-    else{
-      window.alert("Try again!");
-    }
-  };
+    
     
     return (
         <View style={styles.main}>
@@ -29,18 +27,23 @@ const LoginScreen = ({navigation}) => {
             <View style={styles.background}>
                 <Image style={styles.imagebckgrnd} source={umdLogo} />
             </View>
-            <Text style={styles.label}>Log In:</Text>
-            <Text style={styles.subtitle}>Enter your username and password.</Text>
-            <View style={styles.profile}>
-              <Image style={{width:100, height:100}} source={userIcon} />
-            </View>
+            <Text style={styles.label}>Sign-Up Here:</Text>
             <View style={styles.login}>
+                <Text>First and Last Name:</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Enter your full name"
+                    value={fullName}
+                    onChangeText={setName}
+                />
+                <Text>Username:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter your username"
                     value={username}
                     onChangeText={setUsername}
                 />
+                <Text>Password:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter your password"
@@ -48,7 +51,21 @@ const LoginScreen = ({navigation}) => {
                     onChangeText={setPassword}
                     secureTextEntry={true}
                 />
-    
+                <Text>Please Enter Your Gender Identity:</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Enter gender"
+                    value={gender}
+                    onChangeText={setGender}
+                />
+                <Text>Intended Semester for Housing:</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Enter semester"
+                    value={semester}
+                    onChangeText={setSemester}
+                    secureTextEntry={true}
+                />
                 <TouchableOpacity  onPress={handlePress} style={styles.button}>
                     <Text>Submit!</Text>
                 </TouchableOpacity>
@@ -59,7 +76,7 @@ const LoginScreen = ({navigation}) => {
 
     
 }
-export default LoginScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
     main: {
@@ -74,28 +91,6 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         flexDirection: 'row',
     },
-      title: {
-        fontSize: 64,
-        fontWeight: "bold",
-      },
-      subtitle: {
-        fontSize: 36,
-        color: "#fff",
-      },
-      profile:{
-        maxWidth: 100,
-        maxHeight: 100,
-        alignSelf: 'center'
-      },
-      input: {
-        width: "80%",
-        height: 40,
-        marginVertical: 10,
-        borderWidth: 1,
-        padding: 10,
-        borderRadius: 5,
-        backgroundColor: "#fff",
-      },
       headerTitle: {
         fontSize: 25,
         fontWeight: 'bold',
@@ -111,7 +106,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     background: {
-        maxHeight: '30%',
+        maxHeight: '25%',
         backgroundColor: 'black',
         maxWidth: '100%',
     },
@@ -121,18 +116,12 @@ const styles = StyleSheet.create({
         opacity: 0.5,
     },
     label: {
-        fontSize: 60,
+        fontSize: 25,
         fontFamily: 'Lucida Console',
         opacity: 0.8,
         marginLeft: 20,
-      
-    },
-    subtitle: {
-        fontSize: 18,
-        color: "#fff",
-        opacity: 0.7,
-        marginLeft: 23,
-        marginBottom: 20
+        marginTop: 10,
+        marginBottom: 10,
     },
     login: {
         alignItems: 'center',
@@ -149,7 +138,7 @@ const styles = StyleSheet.create({
     button: {
         padding: 10,
         backgroundColor: 'white',
-        marginTop: '10%',
+        marginTop: '5%',
         borderRadius: 20,
         height: 40,
         width: 90,
@@ -157,10 +146,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
 
     },
-    header: {
-        backgroundColor: '#C41E3A',
-        maxHeight: '9%',
-        maxWidth: '100%',
-        flexDirection: 'row',
-      },
+    
     });

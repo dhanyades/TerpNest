@@ -4,8 +4,11 @@ import terpLogo from '@/assets/images/turtlenestlogo.png'
 import umdLogo from '@/assets/images/umd-bckgrnd.webp'
 
 const JoinScreen = ( {navigation} ) => {
-    const handlePress = () => {
+    const handlePressLog = () => {
         navigation.navigate('Login');
+    }
+    const handlePress = () => {
+      navigation.navigate('Sign-Up')
     }
     return (
         <View style={styles.container}>
@@ -16,9 +19,13 @@ const JoinScreen = ( {navigation} ) => {
             <View style={styles.background}>
                 <Image style={styles.imagebckgrnd} source={umdLogo} />
             </View>
-            <Text style={styles.text}>Join the Turtle Nest!</Text>
+            <Text style={styles.text}>Join the Turtle Nest Today!</Text>
             <TouchableOpacity style={styles.button} onPress={handlePress}>
                 <Text style={styles.buttonText}>Join Now!</Text>
+            </TouchableOpacity>
+            <Text style={styles.text}>OR</Text>
+            <TouchableOpacity style={styles.button} onPress={handlePressLog}>
+                <Text style={styles.buttonText}>Login!</Text>
             </TouchableOpacity>
         </View>
     );
@@ -29,7 +36,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'column',
-      backgroundColor: '#f5eeda',
+      backgroundColor: '#f3e7e7',
       resizeMode: 'contain',
     },
     title: {
@@ -48,11 +55,12 @@ const styles = StyleSheet.create({
     },
     text: {
       color: 'black',
-      fontSize: 30,
+      fontSize: 20,
       fontWeight: 'bold',
       marginTop: '5%',
+      marginBottom: '5%',
       alignSelf: 'center',
-      fontFamily: 'Monaco',
+      fontFamily: 'Lucida Console',
     },
     header: {
       backgroundColor: '#C41E3A',
@@ -80,7 +88,7 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: '#C41E3A',
         alignSelf: 'center',
-        marginTop: '10%',
+        marginTop: '3%',
         borderRadius: 20,
     },
     buttonText:{
