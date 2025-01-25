@@ -19,13 +19,14 @@ const JoinScreen = ( {navigation} ) => {
             <View style={styles.background}>
                 <Image style={styles.imagebckgrnd} source={umdLogo} />
             </View>
-            <Text style={styles.text}>Join the Turtle Nest Today!</Text>
+            <Text style={styles.text}>Join the Terp Family!</Text>
+            <Text style={styles.subtext}>Find your nest.</Text>
             <TouchableOpacity style={styles.button} onPress={handlePress}>
-                <Text style={styles.buttonText}>Join Now!</Text>
+                <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
             <Text style={styles.text}>OR</Text>
             <TouchableOpacity style={styles.button} onPress={handlePressLog}>
-                <Text style={styles.buttonText}>Login!</Text>
+                <Text style={styles.buttonText}>Log In</Text>
             </TouchableOpacity>
         </View>
     );
@@ -55,11 +56,20 @@ const styles = StyleSheet.create({
     },
     text: {
       color: 'black',
-      fontSize: 20,
+      fontSize: 38,
       fontWeight: 'bold',
-      marginTop: '5%',
-      marginBottom: '5%',
+      marginTop: '3%',
+      marginBottom: '3%',
       alignSelf: 'center',
+      fontFamily: 'Lucida Console',
+    },
+    subtext: {
+      color: 'black',
+      fontSize: 25,
+      marginTop: '2%',
+      marginBottom: '3%',
+      alignSelf: 'center',
+      opacity: 0.8,
       fontFamily: 'Lucida Console',
     },
     header: {
@@ -89,10 +99,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#C41E3A',
         alignSelf: 'center',
         marginTop: '3%',
+        marginBottom: '3%',
         borderRadius: 20,
     },
     buttonText:{
       color: "white",
+      fontSize: 26,
       fontFamily: 'Lucida Console',
       fontWeight: 'bold',
     }

@@ -50,7 +50,7 @@ const LoginScreen = ({navigation}) => {
                 />
     
                 <TouchableOpacity  onPress={handlePress} style={styles.button}>
-                    <Text>Submit!</Text>
+                    <Text style={styles.buttonText}>Submit!</Text>
                 </TouchableOpacity>
 
             </View>
@@ -74,29 +74,16 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         flexDirection: 'row',
     },
-      title: {
+    title: {
         fontSize: 64,
         fontWeight: "bold",
       },
-      subtitle: {
-        fontSize: 36,
-        color: "#fff",
-      },
-      profile:{
+    profile:{
         maxWidth: 100,
         maxHeight: 100,
         alignSelf: 'center'
       },
-      input: {
-        width: "80%",
-        height: 40,
-        marginVertical: 10,
-        borderWidth: 1,
-        padding: 10,
-        borderRadius: 5,
-        backgroundColor: "#fff",
-      },
-      headerTitle: {
+    headerTitle: {
         fontSize: 25,
         fontWeight: 'bold',
         fontFamily: 'Monaco',       
@@ -123,16 +110,16 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 60,
         fontFamily: 'Lucida Console',
-        opacity: 0.8,
         marginLeft: 20,
-      
+        fontWeight: 'bold',
     },
     subtitle: {
-        fontSize: 18,
-        color: "#fff",
-        opacity: 0.7,
+        fontSize: 20,
+        color: "black",
+        opacity: 0.8,
         marginLeft: 23,
-        marginBottom: 20
+        marginBottom: 20,
+        fontFamily: 'Lucida Console',
     },
     login: {
         alignItems: 'center',
@@ -147,20 +134,17 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     button: {
-        padding: 10,
-        backgroundColor: 'white',
-        marginTop: '10%',
-        borderRadius: 20,
-        height: 40,
-        width: 90,
-        alignItems: 'center',
-        fontWeight: 'bold'
-
+      padding: 10,
+      backgroundColor: '#C41E3A',
+      alignSelf: 'center',
+      marginTop: '3%',
+      marginBottom: '3%',
+      borderRadius: 20,
     },
-    header: {
-        backgroundColor: '#C41E3A',
-        maxHeight: '9%',
-        maxWidth: '100%',
-        flexDirection: 'row',
-      },
+    buttonText: {
+      color: "white",
+      fontSize: 20,
+      fontFamily: 'Lucida Console',
+      fontWeight: 'bold',
+  },
     });

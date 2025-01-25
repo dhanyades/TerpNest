@@ -27,23 +27,23 @@ const SignUpScreen = ({}) => {
             <View style={styles.background}>
                 <Image style={styles.imagebckgrnd} source={umdLogo} />
             </View>
-            <Text style={styles.label}>Sign-Up Here:</Text>
+            <Text style={styles.label}>Enter Your Information:</Text>
             <View style={styles.login}>
-                <Text>First and Last Name:</Text>
+                <Text style={styles.text}>First and Last Name:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter your full name"
                     value={fullName}
                     onChangeText={setName}
                 />
-                <Text>Username:</Text>
+                <Text style={styles.text}>Username:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter your username"
                     value={username}
                     onChangeText={setUsername}
                 />
-                <Text>Password:</Text>
+                <Text style={styles.text}>Password:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter your password"
@@ -51,14 +51,14 @@ const SignUpScreen = ({}) => {
                     onChangeText={setPassword}
                     secureTextEntry={true}
                 />
-                <Text>Please Enter Your Gender Identity:</Text>
+                <Text style={styles.text}>Gender Identity:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter gender"
                     value={gender}
                     onChangeText={setGender}
                 />
-                <Text>Intended Semester for Housing:</Text>
+                <Text style={styles.text}>Intended Semester for Housing:</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter semester"
@@ -66,8 +66,8 @@ const SignUpScreen = ({}) => {
                     onChangeText={setSemester}
                     secureTextEntry={true}
                 />
-                <TouchableOpacity  onPress={handlePress} style={styles.button}>
-                    <Text>Submit!</Text>
+                <TouchableOpacity onPress={handlePress} style={styles.button}>
+                    <Text style={styles.buttonText}>Submit!</Text>
                 </TouchableOpacity>
 
             </View>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
         flexDirection: 'row',
     },
-      headerTitle: {
+    headerTitle: {
         fontSize: 25,
         fontWeight: 'bold',
         fontFamily: 'Monaco',       
@@ -118,10 +118,14 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 25,
         fontFamily: 'Lucida Console',
-        opacity: 0.8,
+        fontWeight: 'bold',
         marginLeft: 20,
         marginTop: 10,
         marginBottom: 10,
+    },
+    text: {
+        fontSize: 17,
+        fontFamily: 'Lucida Console',
     },
     login: {
         alignItems: 'center',
@@ -137,14 +141,16 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 10,
-        backgroundColor: 'white',
-        marginTop: '5%',
+        backgroundColor: '#C41E3A',
+        marginTop: '2%',
+        marginBottom: '2%',
         borderRadius: 20,
-        height: 40,
-        width: 90,
-        alignItems: 'center',
-        fontWeight: 'bold'
-
+        alignSelf: 'center',
     },
-    
+    buttonText: {
+        color: "white",
+        fontSize: 20,
+        fontFamily: 'Lucida Console',
+        fontWeight: 'bold',
+    }
     });

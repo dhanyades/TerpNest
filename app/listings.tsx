@@ -76,11 +76,11 @@ const ListingScreen = () => {
             </View>
             
             <View style={styles.buttons}>
-                <TouchableOpacity disabled={isFirst} onPress={handlePrev} style={styles.prev}>
-                    <Text>Prev</Text>
+                <TouchableOpacity disabled={isFirst} onPress={handlePrev} style={styles.prevNext}>
+                    <Text style={styles.buttonText}>Prev</Text>
                 </TouchableOpacity>
-                <TouchableOpacity disabled={isLast} onPress={handleNext} style={styles.next}>
-                    <Text>Next</Text>
+                <TouchableOpacity disabled={isLast} onPress={handleNext} style={styles.prevNext}>
+                    <Text style={styles.buttonText}>Next</Text>
                 </TouchableOpacity>
             </View>
             
@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#f3e7e7',
     },
     topText: {
-        fontSize: 20,
-        fontFamily: "Monaco",
+        fontSize: 37,
+        fontFamily: "Lucida Console",
         fontWeight: "bold",
         marginTop: 35,
         alignSelf: "flex-start",
@@ -151,20 +151,17 @@ const styles = StyleSheet.create({
     buttons: {
         flexDirection: "row",
         position: "absolute",
-        marginTop: 700
-
+        marginTop: 700,
     },
-    prev: {
+    prevNext: {
         margin: 10,
         padding: 10,
         borderRadius: 10,
         backgroundColor: "white",
     },
-    next: {
-        margin: 10,
-        padding: 10,
-        borderRadius: 10,
-        backgroundColor: "white",
-    }
-
+    buttonText: {
+        fontFamily: 'Lucida Console',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
 });

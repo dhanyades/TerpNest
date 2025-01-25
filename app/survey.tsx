@@ -14,7 +14,6 @@ const SurveyScreen = () => {
     const [items, setItems] = useState([
     { label: 'Messy', value: 'option1' },
     { label: 'Neat', value: 'option2' },
-    { label: 'OCD', value: 'option3' },
     { label: 'Average', value: 'option4' },
   ]);
     const [open1, setOpen1] = useState(false);
@@ -46,7 +45,7 @@ const SurveyScreen = () => {
                 <Text style={styles.label}>Please fill in your preferences below:</Text>
                 <View style={styles.line}></View>
                 <Text style={styles.subtitle}>I am a morning person.</Text>
-                <DropDownPicker
+                <DropDownPicker style={styles.picker}
                     open={open1}
                     value={value1}
                     items={items1}
@@ -57,7 +56,7 @@ const SurveyScreen = () => {
                 />
                 
                 <Text style={styles.subtitle}>Socially, I am best described as:</Text>
-                <DropDownPicker
+                <DropDownPicker style={styles.picker}
                     open={open2}
                     value={value2}
                     items={items2}
@@ -67,7 +66,7 @@ const SurveyScreen = () => {
                     placeholder="Select an option"
                 />
                 <Text style={styles.subtitle}>In terms of cleanliness, people consider me to be:</Text>
-                <DropDownPicker
+                <DropDownPicker style={styles.picker}
                     open={open}
                     value={value}
                     items={items}
@@ -143,28 +142,34 @@ const styles = StyleSheet.create({
         fontFamily: 'Lucida Console',
         marginLeft: 20,
         marginRight: 20,
-        marginBottom: 60,
+        marginBottom: 30,
     },
     button: {
         padding: 10,
-        backgroundColor: 'gray',
-        marginTop: '10%',
-        marginBottom: '10%',
+        backgroundColor: '#C41E3A',
+        marginTop: '7%',
         borderRadius: 20,
-        height: 40,
-        width: 140,
         alignSelf: 'center',
     },
     buttonText: {
-        fontSize: 15,
-        alignSelf: 'center',
+        color: "white",
+        fontSize: 20,
+        fontFamily: 'Lucida Console',
+        fontWeight: 'bold',
+    },
+    picker: {
+        marginBottom: 30,
+        borderWidth: 4,
+        width: "80%",
+        alignSelf: 'center'
     },
     input: {
-        width: "70%",
-        height: 40,
+        width: "80%",
+        height: 50,
         borderWidth: 4,
         padding: 15,
         borderRadius: 10,
+        alignSelf: 'center',
         backgroundColor: "#fff",
     },
 });
