@@ -4,7 +4,7 @@ import terpLogo from '@/assets/images/turtlenestlogo.png';
 import { useNavigation } from '@react-navigation/native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-const SurveyScreen = () => {
+const SurveyScreen = (userID: number) => {
     const navigation = useNavigation<any>();
 
     const [diet, setDiet] = useState("");

@@ -9,12 +9,6 @@ import SignUpScreen from './signUp';
 import MenuScreen from './menu';
 
 
-type RootStackParamList = {
-  Join: undefined;
-  Login: undefined;
-  Survey: undefined;
-  Listings: { properties: Property[] };
-};
 
 const Stack = createNativeStackNavigator();
 

@@ -4,19 +4,55 @@ const fs = require('fs');
 const db = new sqlite3.Database('./terp.db', (err) => {
     if (err) {
         return console.error(err.message);
+    } else {
+        console.log('Connected to the database.');
+        db.run("PRAGMA foreign_keys = ON;", error => {
+            if (error) {
+                console.error("Pragma statement didn't execute.", error);
+            } else {
+                console.log("Foreign key enforcement is on.");
+            }
+        });
+        console.log('Connected to the SQlite database.');
     }
-    console.log('Connected to the SQlite database.');
+    
 });
 
 // Create a new table
 db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    firstName TEXT NOT NULL,
-    lastName TEXT NULL,
+    fullName TEXT NOT NULL,
     gender TEXT NULL,
     semester TEXT NULL,
     email TEXT NOT NULL UNIQUE,
-    passwrd TEXT NOT NULL
+    password TEXT NOT NULL
+)`, (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+});
+
+db.run(`CREATE TABLE IF NOT EXISTS preferences (
+    id INTEGER PRIMARY KEY,
+    userID INTEGER, 
+    morning TEXT NULL,
+    social TEXT NULL,
+    clean TEXT NULL,
+    allergy TEXT NULL,
+    FOREIGN KEY (userID) REFERENCES users(id),
+)`, (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+});
+
+db.run(`CREATE TABLE IF NOT EXISTS favorites (
+    userID INTEGER,
+    propertyID INTEGER,
+    PRIMARY KEY (userID, propertyID),
+    FOREIGN KEY (userID) REFERENCES users(id),
+    FOREIGN KEY (propertyID) REFERENCES properties(id)
+ 
 )`, (err) => {
     if (err) {
         console.error(err.message);

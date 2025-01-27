@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         fontSize: 37,
         fontFamily: "Lucida Console",
         fontWeight: "bold",
-        marginTop: 35,
+        marginTop: 18,
         alignSelf: "flex-start",
         marginLeft: 25
     },

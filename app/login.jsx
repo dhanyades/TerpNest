@@ -12,7 +12,7 @@ const LoginScreen = ({navigation}) => {
 
   const handlePress = () => {
     if (username === correctUsername && password === correctPassword){
-      navigation.navigate('Survey')
+      navigation.navigate('Listings')
 
     }
     else{

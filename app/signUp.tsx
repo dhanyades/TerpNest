@@ -6,15 +6,38 @@ import { useNavigation } from '@react-navigation/native';
 
 
 const SignUpScreen = ({}) => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [fullName, setName] = useState("");
     const [gender, setGender] = useState("");
     const [semester, setSemester] = useState("");
     const navigation = useNavigation<any>();
 
-    const handlePress = () => {
-        navigation.navigate('Survey');
+    const handleSubmit = () => {
+        const userData = {
+            fullName,
+            gender,
+            semester,
+            email,
+            password
+        };
+
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            
+            navigation.navigate('Survey');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     }
     
     
@@ -36,12 +59,12 @@ const SignUpScreen = ({}) => {
                     value={fullName}
                     onChangeText={setName}
                 />
-                <Text style={styles.text}>Username:</Text>
+                <Text style={styles.text}>Email:</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="Enter your username"
-                    value={username}
-                    onChangeText={setUsername}
+                    placeholder="Enter an email"
+                    value={email}
+                    onChangeText={setEmail}
                 />
                 <Text style={styles.text}>Password:</Text>
                 <TextInput
@@ -64,9 +87,8 @@ const SignUpScreen = ({}) => {
                     placeholder="Enter semester"
                     value={semester}
                     onChangeText={setSemester}
-                    secureTextEntry={true}
                 />
-                <TouchableOpacity onPress={handlePress} style={styles.button}>
+                <TouchableOpacity onPress={handleSubmit} style={styles.button}>
                     <Text style={styles.buttonText}>Submit!</Text>
                 </TouchableOpacity>
 

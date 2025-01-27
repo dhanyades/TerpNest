@@ -1,14 +1,16 @@
 class Profile {
-    username: string;  
+    email: string;  
     fullName: string;
     gender: string;
-    semester: string
+    semester: string;
+    passwrd: string;
 
-    constructor(username: string, fullName: string, gender: string, semester: string) {
-        this.username = username;
+    constructor(email: string, fullName: string, gender: string, semester: string, passwrd: string) {
+        this.email = email;
         this.fullName = fullName;
         this.gender = gender;
         this.semester = semester;
+        this.passwrd = passwrd;
     }
 
 };
